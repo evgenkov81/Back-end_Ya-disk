@@ -4,7 +4,6 @@ package ru.evgenkov.beckend_yadisk.model;
 import lombok.*;
 import org.hibernate.Hibernate;
 import ru.evgenkov.beckend_yadisk.components.shemas.SystemItemType;
-
 import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -56,4 +55,6 @@ public class Element {
     public int hashCode() {
         return getClass().hashCode();
     }
-}
+
+
+    }

@@ -1,7 +1,6 @@
 package ru.evgenkov.beckend_yadisk.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ru.evgenkov.beckend_yadisk.components.shemas.SystemItemImport;
@@ -11,7 +10,6 @@ import ru.evgenkov.beckend_yadisk.model.Element;
 
 import java.util.List;
 
-@Component
 @Service
 public class ValidationService {
     private final ElementService elementService;
@@ -26,9 +24,8 @@ public class ValidationService {
                 ("^([+-]?\\d{4}(?!\\d{2}\\b))((-?)((0[1-9]|1[0-2])(\\3([12]\\d|0[1-9]|3[01]))?|W([0-4]\\d|5[0-2])(-?[1-7])?|(00[1-9]|0[1-9]\\d|[12]\\d{2}|3([0-5]\\d|6[1-6])))([T\\s]((([01]\\d|2[0-3])((:?)[0-5]\\d)?|24:?00)([.,]\\d+(?!:))?)?(\\17[0-5]\\d([.,]\\d+)?)?([zZ]|([+-])([01]\\d|2[0-3]):?([0-5]\\d)?)?)?)?$");
     }
 
-    //todo
-    public static boolean isID(String id) {
-        return id.matches("элемент" + "^_[1-9]_[1-9]$");
+       public static boolean isID(String id) {
+           return id.matches("^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$");
     }
 
     private boolean isValidId(String id, SystemItemImport systemItemImport,
